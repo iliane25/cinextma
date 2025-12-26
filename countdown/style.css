@@ -1,0 +1,310 @@
+/* ===============================================
+   SITE DE COMPTE À REBOURS
+   Page d'attente avec countdown jusqu'au lancement
+   =============================================== */
+
+/* Réinitialisation des styles par défaut */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Configuration des polices et couleurs principales */
+body {
+  color: #fff;
+}
+
+/* Polices pour les titres principaux */
+main h1,
+header h1 {
+  font-family: Montserrat, sans-serif;
+}
+
+/* Polices pour les sous-titres */
+main h2,
+header h2 {
+  font-family: "Hind Vadodara", sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+/* Centrage du texte pour le contenu principal */
+main h2,
+main p {
+  text-align: center;
+}
+
+/* Polices pour les paragraphes */
+main p,
+header p {
+  font-family: "Hind Vadodara", sans-serif;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+/* ===============================================
+   PIED DE PAGE
+   =============================================== */
+
+/* Configuration du footer en bas de page */
+footer {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  justify-content: center;
+  padding-bottom: 1rem;
+}
+
+/* Style du texte du footer */
+footer p {
+  font-family: "Hind Vadodara", sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* Animation d'arrière-plan avec image de fond */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(0 0 0 / 30%) 0%,
+      rgba(0 0 0 / 90%) 100%
+    ),
+    url("assets/carriza-maiquez.webp");
+  background-size: cover;
+  animation: animate 5s ease-in-out forwards;
+  transform: scale(1.1);
+  z-index: -1;
+}
+
+/* Animation de zoom sur l'arrière-plan */
+@keyframes animate {
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Configuration du conteneur principal */
+.container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+/* Styles pour le logo */
+.image {
+  float: left;
+  width: 100px;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(120%);
+}
+
+/* Conteneur pour le titre et sous-titre */
+.title {
+  float: left;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 1.5rem;
+  padding-left: 1rem;
+}
+
+/* Section principale du countdown */
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* Remplacez 20vh et 5vh par les hauteurs réelles de votre en-tête et de votre pied de page. */
+  height: calc(100vh - 20vh - 5vh);
+}
+
+/* Ligne de séparation */
+.countdown hr {
+  width: 40%;
+  margin: 2rem 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255 255 255 / 50%), transparent);
+}
+
+/* Timer - Styles pour le compteur de temps */
+.countdown-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.time-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0 0 0 / 40%);
+  padding: 1.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255 255 255 / 10%);
+  min-width: 90px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.time-unit:hover {
+  transform: translateY(-3px);
+  background: rgba(0 0 0 / 50%);
+}
+
+.time-unit span {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: Montserrat, sans-serif;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0 0 0 / 80%);
+}
+
+.smalltext {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ccc;
+  font-family: "Hind Vadodara", sans-serif;
+  font-weight: 400;
+}
+
+/* Espacement pour le paragraphe principal */
+.paragraphe {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  opacity: 0.95;
+  font-style: italic;
+  font-family: "Fanwood Text", sans-serif;
+  line-height: 1.3;
+}
+
+/* ===============================================
+   SECTION RÉSEAUX SOCIAUX
+   =============================================== */
+
+/* Conteneur des icônes de réseaux sociaux */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  gap: 15px;
+}
+
+/* Liens vers les réseaux sociaux */
+.social-icons a {
+  transition: all 0.3s ease;
+}
+
+/* Effet de survol sur les liens */
+.social-icons a:hover {
+  transform: scale(1.1);
+}
+
+/* Taille et espacement des icônes */
+.icons img {
+  width: 40px;
+  height: 40px;
+  transition: filter 0.3s ease;
+}
+
+/* Transition pour les effets sur les icônes */
+.icons {
+  transition: filter 0.3s ease;
+}
+
+/* Effet de désaturation au survol des icônes */
+.icons:hover {
+  filter: grayscale(100%) brightness(75%);
+}
+
+/* ===============================================
+   RESPONSIVE DESIGN
+   =============================================== */
+
+/* Adaptations pour écrans moyens */
+@media screen and (max-width: 1100px) {
+  header h1,
+  main h2 {
+    font-size: min(0.5rem + 5vw, 2rem);
+  }
+
+  .time-unit span {
+    font-size: 2.5rem;
+  }
+}
+
+/* Adaptations pour smartphones et tablettes */
+@media screen and (max-width: 768px) {
+  /* Ajustement du footer pour mobile */
+  footer {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1rem;
+  }
+
+  /* Styles spécifiques pour le texte du footer en mobile */
+  footer p {
+    font-size: min(0.5rem + 5vw, 14px);
+    text-align: center;
+  }
+
+  /* Ajustement de la section titre */
+  .title {
+    width: 90%;
+    padding-left: 0.34rem;
+    padding-top: 1rem;
+    text-align: left;
+  }
+
+  .title p {
+    margin-top: 0.34rem;
+  }
+
+  /* Redimensionnement des icônes pour mobile */
+  .icons img {
+    height: min(15px + 4vw, 40px);
+    width: min(15px + 4vw, 40px);
+  }
+
+  /* Adaptations du countdown pour mobile */
+  .countdown-timer {
+    gap: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .time-unit {
+    min-width: 80px;
+    padding: 1rem 0.5rem;
+  }
+
+  .time-unit span {
+    font-size: 2rem;
+  }
+
+  .smalltext {
+    font-size: 0.8rem;
+  }
+}

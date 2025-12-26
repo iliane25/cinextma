@@ -1,0 +1,32 @@
+# https://github.com/github/super-linter
+
+name: super_linter_hcjs
+on:
+  push
+
+jobs:
+  run-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Lint Code Base
+        uses: github/super-linter@v4
+        env:
+          DEFAULT_BRANCH: "main"
+          DEFAULT_WORKSPACE: ./src/
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Code diff vs all code
+#           VALIDATE_ALL_CODEBASE: false # si git diff only
+          VALIDATE_ALL_CODEBASE: true #Tout le code à chaque fois
+          
+          #Les langages linté
+          VALIDATE_HTML: true
+          VALIDATE_CSS: true
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_JSX: true
+          VALIDATE_TSX: true
+          VALIDATE_TYPESCRIPT_ES: true
