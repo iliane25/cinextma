@@ -16,18 +16,18 @@ export const getMoviePlayers = (id: string | number, startAt?: number): PlayersP
   return [
     // Source spéciale pour Five Nights at Freddy's
     ...(isFNAF ? [{
-      title: "SuperVideo (VOD Française)",
+      title: "Five Nights at Freddy's 2 (VOD Française)",
       source: `https://supervideo.cc/e/k36vox3wkpjz`,
       recommended: true,
       fast: true,
-      ads: true,
+      ads: false,
       language: 'fr',
       vod: true
     }] : []),
       
     // Source spéciale pour Zootopie 2
     ...(isZootopie ? [{
-      title: "SuperVideo (VOD Française)",
+      title: "Zootopie 2 (VOD Française)",
       source: `https://supervideo.cc/e/ieo92r7hiicb`,
       recommended: true,
       fast: true,
