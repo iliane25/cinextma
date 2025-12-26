@@ -3,14 +3,15 @@
 import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 
-const ContinueWatching = dynamic(() => import("@/components/sections/home/ContinueWatching"));
-const HomePageList = dynamic(() => import("@/components/sections/home/List"));
+// Chemins corrects pour ton projet (Home avec H majuscule)
+const ContinueWatching = dynamic(() => import("@/components/sections/Home/ContinueWatching"));
+const HomePageList = dynamic(() => import("@/components/sections/Home/List"));
 
 export default function HomePage() {
   const [isLaunched, setIsLaunched] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // TA DATE DE LANCEMENT
+  // DATE DE LANCEMENT
   const launchDate = new Date('2026-01-26T18:00:00').getTime();
 
   const [timeLeft, setTimeLeft] = useState({
@@ -35,6 +36,7 @@ export default function HomePage() {
     "CINEXTMA : le futur du streaming gratuit",
   ];
 
+  // Compteur + déclenchement transition
   useEffect(() => {
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -59,6 +61,7 @@ export default function HomePage() {
     return () => clearInterval(interval);
   }, [launchDate, isLaunched]);
 
+  // Phrases qui changent
   useEffect(() => {
     if (isLaunched) return;
 
@@ -73,6 +76,7 @@ export default function HomePage() {
     return () => clearInterval(phraseInterval);
   }, [isLaunched]);
 
+  // Cache la navbar
   useEffect(() => {
     if (isLaunched) return;
 
@@ -93,7 +97,7 @@ export default function HomePage() {
     };
   }, [isLaunched]);
 
-  // === NEIGE INSTANTANÉE ET FLUIDE ===
+  // Neige instantanée et fluide (apparaît dès l'ouverture)
   useEffect(() => {
     if (isLaunched) return;
 
@@ -126,8 +130,7 @@ export default function HomePage() {
       particle.style.borderRadius = '50%';
       particle.style.opacity = `${Math.random() * 0.7 + 0.3}`;
       particle.style.left = `${Math.random() * 100}%`;
-      // Position aléatoire sur toute la hauteur pour que la neige soit visible dès l'ouverture
-      particle.style.top = `${Math.random() * 100}%`;
+      particle.style.top = `${Math.random() * 100}%`; // Visible dès le début
       const drift = (Math.random() - 0.5) * 250;
       particle.style.setProperty('--drift', `${drift}px`);
       const duration = 10 + Math.random() * 15;
