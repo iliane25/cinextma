@@ -12,6 +12,7 @@ import { PlayersProps } from "@/types";
 export const getMoviePlayers = (id: string | number, startAt?: number): PlayersProps[] => {
   const isFNAF = id === 1228246 || id === '1228246';
   const isZootopie = id === 1084242 || id === '1084242';
+  const isDameDeMenage = id === 1368166 || id === '1368166'; // Remplacez par l'ID TMDB du film
   
   return [
     // Source spéciale pour Five Nights at Freddy's
@@ -32,6 +33,17 @@ export const getMoviePlayers = (id: string | number, startAt?: number): PlayersP
       recommended: true,
       fast: true,
       ads: true,
+      language: 'fr',
+      vod: true
+    }] : []),
+    
+    // Source spéciale pour La Femme de ménage
+    ...(isDameDeMenage ? [{
+      title: "La Femme de ménage (VOD Française)",
+      source: "https://vidzy.org/embed-s4vyvwmh4p5n.html",
+      recommended: true,
+      fast: true,
+      ads: false,
       language: 'fr',
       vod: true
     }] : []),
