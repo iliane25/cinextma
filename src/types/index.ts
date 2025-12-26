@@ -63,11 +63,13 @@ export type SiteConfigType = {
 
 export type PlayersProps = {
   title: string;
-  source: `https://${string}`;
+  source: string; // Modifié pour accepter n'importe quelle chaîne
   recommended?: boolean;
   fast?: boolean;
   ads?: boolean;
   resumable?: boolean;
+  language?: string;
+  vod?: boolean; // Indique si c'est une source VOD (vidéo à la demande)
 };
 
 export type Settings = {

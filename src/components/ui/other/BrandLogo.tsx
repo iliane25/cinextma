@@ -28,7 +28,7 @@ const BrandLogo: React.FC<BrandLogoProps> = ({ animate = false, className }) => 
           className,
         )}
       >
-        CINE{" "}
+        CineX
         <span>
           <Next
             className={cn("size-full px-[2px] transition-colors", {
@@ -36,8 +36,8 @@ const BrandLogo: React.FC<BrandLogoProps> = ({ animate = false, className }) => 
               "text-warning": content === "tv",
             })}
           />
-        </span>{" "}
-        TMA
+        </span>
+        tream
       </span>
     </Link>
   );
