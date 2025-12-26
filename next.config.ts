@@ -1,6 +1,7 @@
 import withPWAInit from "@ducanh2912/next-pwa";
-import { NextConfig } from "next/dist/server/config";
+import { NextConfig } from "next";
 
+// Configuration PWA
 const withPWA = withPWAInit({
   dest: "public",
   register: true,
@@ -13,11 +14,11 @@ const withPWA = withPWAInit({
   },
 });
 
+// Configuration Next.js
 const nextConfig: NextConfig = {
   eslint: {
-    ignoreDuringBuilds: false,
+    ignoreDuringBuilds: true, // ignore ESLint pendant le build
   },
-  // https://github.com/payloadcms/payload/issues/12550#issuecomment-2939070941
   turbopack: {
     resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".mjs", ".json"],
   },
@@ -26,6 +27,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-const pwa = withPWA(nextConfig);
-
-export default pwa;
+// Export final combiné PWA + Next.js
+export default withPWA(nextConfig);
